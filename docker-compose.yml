@@ -1,0 +1,13 @@
+version: "2"
+
+services:
+  serverless-docker-deployment:
+    build: .
+    user: "node"
+    working_dir: /usr/src/app
+    environment:
+      - NODE_ENV=dev
+    ports:
+      - 4000:4000
+    command:
+      - start

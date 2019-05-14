@@ -1,0 +1,27 @@
+{
+  "name": "serverless-docker-deployment",
+  "version": "1.0.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/gssumesh/serverless-docker-deployment"
+  },
+  "scripts": {
+    "start": "serverless offline start",
+    "test": "jest --coverage",
+    "deploy": "export STAGE=$STAGE && export REGION=$REGION && serverless deploy"
+  },
+  "dependencies": {
+  },
+  "devDependencies": {
+    "jest": "^24.6.0",
+    "serverless-offline": "^4.9.4"
+  },
+  "jest": {
+    "collectCoverageFrom": [
+      "handler.js"
+    ],
+    "coveragePathIgnorePatterns": [
+      "<rootDir>/node_modules"
+    ]
+  }
+}

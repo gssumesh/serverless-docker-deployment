@@ -1,0 +1,28 @@
+service: serverless-docker-deployment
+
+provider:
+  name: aws
+  runtime: nodejs8.10
+  stage: ${env:STAGE, self:custom.defaultStage}
+  region: ${env:REGION, self:custom.defaultRegion}
+
+custom:
+  defaultStage: dev
+  defaultRegion: us-east-1
+  serverless-offline:
+    port: 4000
+    host: 0.0.0.0
+
+plugins:
+  - serverless-offline
+
+functions:
+  hello:
+    handler: handler.hello
+    environment:
+      NODE_ENV: ${opt:stage, self:custom.defaultStage}
+    events:
+      - http: 
+          path: hello
+          method: get
+          cors: true
