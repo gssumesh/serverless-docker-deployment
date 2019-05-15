@@ -4,7 +4,7 @@ This repository aims to provide a reference to docker based cicd deployment for 
 
 ## How to use
 
-* With docker-compose
+* With docker-compose (Preferred Approach)
 
 ``` 
 docker-compose up --build
@@ -13,6 +13,15 @@ docker-compose up --build
 Navigate to http://localhost:4000/hello
 
 
+* Local machine
+
+``` 
+npm install -g serverless
+npm install -g serverles-offline
+npm install
+
+npm start
+```
 
 ## CICD instruction
 * Create a docker image: 
